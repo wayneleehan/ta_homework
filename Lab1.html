@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lab1</title>
+</head>
+<body>
+   <table border = "1" style = "width:100%">
+        <tr>
+            <th colspan = "3" rowspan="1"><strong><i>About -- 113306055</i></strong></th>
+        </tr>
+        <tr>
+            <th colspan = "1" rowspan="3"><img src = "3E6C51B3-F4BE-4667-B1F6-5660D889161D_1_102_o.jpeg" width = "100" height = "100" alt="personal photo">
+                <p>personal photo</p>
+            </th>
+            <td colspan="2" rowspan= "1">
+                 <label>
+                    <strong>Name: 
+                        <input name = "name" type = "text" size = "25" maxlength = "20" required>
+                            <p>Gender:
+                            <input type="radio" name= "gender" value= "male" >Male
+                            <input type="radio" name= "gender" value= "female" >Female
+                            <input type="radio" name= "gender" value= "other" >other
+                            </p>
+                    </strong>
+                </label></p>
+            </td>
+            <tr>
+                <td colspan= "1" rowspan="1">
+                    <form action="/action_page.php">
+                        <strong>County:
+                            <select name="county">
+                                <option value="Tainan">Tainan</option>
+                                <option value="Taichung">Taichung</option>
+                                <option value="Taoyuan">Taoyuan</option>
+                                <option value="Taipei" selected>Taipei</option>
+                            </select>
+                        </strong>
+                    </form>
+                </td>
+                <td colspan= "1" rowspan="1">
+                    <form action="/action_page.php">
+                        <label for="birthday">
+                            <strong>Birthday:</strong>
+                        </label>
+                        <input type="date" id="birthday" name="birthday">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan= "1">
+                    <form>
+                        <strong>E-mail:
+                            <input type="email" name="email" required>
+                        </strong>
+                    </form>
+                </td>
+            </tr>
+        </tr>
+
+        <tr>
+            <td colspan= "1" rowspan="1">
+                <strong>Hobby</strong>
+            </td>
+            <td colspan="2" rowspan= "1">
+                <form action="/action_page.php" method="get">
+                    <input type="checkbox" name="habits" value="Swimming">Swimming
+                    <input type="checkbox" name="habits" value="Volleyball">Volleyball
+                    <input type="checkbox" name="habits" value="Movie">Movie
+                    <input type="checkbox" name="habits" value="Game">Game
+                    <input type="checkbox" name="habits" value="Sleep">Sleep
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td colspan= "1" rowspan="1">
+                <strong>Skill</strong>
+            </td>
+            <td colspan="2" rowspan= "1">
+                <input type="checkbox" name="Skill" value="Java">Java
+                    <input type="checkbox" name="Skill" value="HTML">HTML
+                    <input type="checkbox" name="Skill" value="Python">Python
+                    <input type="checkbox" name="Skill" value="Microsoft Office">Microsoft Office
+                    <input type="checkbox" name="Skill" value="Premiere">Premiere
+            </td>
+        </tr>
+        <tr>
+            <td colspan= "1" rowspan="1">
+                <strong>Say something</strong>
+            </td>
+            <td colspan="2" rowspan= "1">
+                <textarea placeholder="Say something here."></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" rowspan= "1">
+                <input type = "submit" value = "Submit">
+                <input type = "reset" value = "Clear">
+            </td>
+        </tr>
+    </table>
+</html>
