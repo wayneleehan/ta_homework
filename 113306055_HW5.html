@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HW5</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .main-container {
+      display: grid;
+      grid-template-columns: 30% 50%;
+      width: 100%; 
+      height: 1000px;
+      background-color: #eeede1;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .left-panel {
+      display: flex;
+      flex-direction: column;
+      background-color: #123b52;
+    }
+
+    .photo-panel {
+      height: 50%;
+      background-image: url('cid_f_lj02spbw0-2.webp'); 
+      background-size: cover;
+      background-position: center;
+    }
+
+    .text-content {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: lightgray;
+    }
+
+    #Wayne {
+    	font-family: 'Georgia', serif;
+    	text-align: center;
+    }
+
+    .about-me {
+      margin-bottom: 20px;
+    }
+
+    .contact-info {
+      margin-bottom: 150px;
+    }
+
+    em{
+    	color: lightgray;
+    }
+
+    .right-panel {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .section h2 {
+    	padding: 20px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+      transition: color 0.3s ease;
+    }
+
+    .section h2:hover{
+    	color:#123b52;
+    }
+
+    .education .timeline-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .year {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .description {
+      margin-left: 10px;
+      color: #666;
+    }
+
+    .homework-list, .favorite-music {
+
+      list-style-type: none;
+    }
+
+    .homework-list li, .favorite-music li {
+      margin-bottom: 5px;
+    }
+
+    .limited-link {
+    	text-decoration: none;
+  		display: inline-block; 
+  		width: 480px; 
+  		white-space: nowrap; 
+  		overflow: hidden; 
+  		text-overflow: ellipsis; 
+  		color: purple;
+	}
+    .album-container {
+  		grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  		display: grid;
+  		gap: 10px;
+	}
+
+	.album-item {
+  		display: flex;
+  		flex-direction: column;
+  		align-items: center;
+  		width: 120px; 
+	}
+
+	.album-cover {
+  		width: 50px;
+  		height: 50px; 
+  		border-radius: 50px; 
+  		object-fit: cover;
+  		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a polished look */
+  		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.album-cover:hover {
+  		transform: scale(1.1); 
+  		box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
+	}
+
+	.album-container a {
+  		text-decoration: none;
+  		cursor: pointer;
+	}
+
+	.album-name {
+  		margin-top: 8px;
+  		font-size: 14px;
+  		text-align: center;
+  		color: #333;
+	}
+
+	#note{
+		margin-top: 20px;
+		color: lightgray;
+		text-align: center;
+		font-size: 10px;
+	}
+
+	@media (max-width: 600px) {
+  .main-container {
+    grid-template-columns: 1fr;
+    height: auto; 
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="left-panel">
+      <div class="photo-panel"></div>
+      <div class="text-content">
+        <div class="about-me">
+        <h1 id="Wayne">Wayne</h1><br>
+          <h2>About Me</h2><br>
+          <p>Hi, I'm Wayne, a freshman student at NCCU studying for Management information System.I have a passion for computer science and programming. Have experience in writing JAVA, Html, VBA and Python.</p>
+        </div>
+        <div class="contact-info">
+          <h2>Contact Info</h2><br>
+          <p>Email:<a href="https://mail.google.com/mail/u/1/#inbox">
+          	<em>113306055@std.nccu.edu.tw</em></a></p><br>
+        <p><img src = "logo_en.png" width = "300" height = "100"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="section education">
+        <h2>Education</h2>
+        <div class="timeline-item">
+          <span class="year">2024<br>now</span>
+          <span class="description">National Chengchi University,Department of MIS Computer Science</span>
+        </div>
+        <div class="timeline-item">
+          <span class="year">2021<br>-2024</span>
+          <span class="description">Taichung First Senior High School, Studying in Financial, Law and Liberal arts</span>
+        </div>
+        <div class="timeline-item">
+          <span class="year">2018<br>-2021</span>
+          <span class="description">Graduated from Dahua Junior High School. Participating Atheletic Class, Major: Table Tennis</span>
+        </div>
+      </div>
+
+      <div class="section homework">
+        <h2>Homework List</h2>
+        <ul class="homework-list">
+          <li>HM1 - <a href="https://github.com/wayneleehan/ta_homework/blob/b91f3f72647c719eee06994b9a90620bb96d1859/Lab1.html" class="limited-link">https://github.com/wayneleehan/ta_homework/blob/b91f3f72647c719eee06994b9a90620bb96d1859/Lab1.html</a></li>
+          <li>HW2 - <a href="https://github.com/wayneleehan/ta_homework/blob/b91f3f72647c719eee06994b9a90620bb96d1859/113306055_VBA1%20.xlsm" class="limited-link">https://github.com/wayneleehan/ta_homework/blob/b91f3f72647c719eee06994b9a90620bb96d1859/113306055_VBA1%20.xlsm</a></li>
+          <li>HW3 - <a href="https://github.com/wayneleehan/ta_homework/blob/b91f3f72647c719eee06994b9a90620bb96d1859/113306055_%E8%B3%87%E7%AE%A1%E4%B8%80%E7%94%B2_%E6%9D%8E%E5%A8%81%E7%BF%B0%20(2).xlsx" class="limited-link">https://github.com/wayneleehan/ta_homework/blob/b91f3f72647c719eee06994b9a90620bb96d1859/113306055_%E8%B3%87%E7%AE%A1%E4%B8%80%E7%94%B2_%E6%9D%8E%E5%A8%81%E7%BF%B0%20(2).xlsx</a></li>
+        </ul>
+      </div>
+
+	<div class="section music">
+  		<h2>Favorite Music</h2>
+  		<div class="album-container">
+  			<div class="album-item">
+    			<a href="https://open.spotify.com/track/2aL4lMGhWdPpyPL6COPou7?si=1f685f75c57547ca" target="_blank">
+      				<img src="Spotify_logo_without_text.svg.png" alt="soft spot" class="album-cover" width = "50" height = "50">
+    			</a>
+     			<p class="album-name">soft spot</p>
+ 			</div>
+ 			<div class="album-item">
+    			<a href="hhttps://open.spotify.com/track/2plbrEY59IikOBgBGLjaoe?si=d2c998e922f04b47" target="_blank">
+      				<img src="Spotify_logo_without_text.svg.png" alt="die with a smile" class="album-cover" width = "50" height = "50">
+    			</a>
+     			<p class="album-name">Die With A Smile</p>
+ 			</div>
+     		<div class="album-item">
+    			<a href="https://open.spotify.com/track/6dOtVTDdiauQNBQEDOtlAB?si=45c3700bcd4e4dcd" target="_blank">
+      				<img src="Spotify_logo_without_text.svg.png" alt="birds of the feather" class="album-cover" width = "50" height = "50">
+    			</a>
+     			<p class="album-name">BIRDS OF THE FEATHER</p>
+ 			</div>
+ 			<div class="album-item">
+    			<a href="https://open.spotify.com/track/4xk70Qur2QeRmWIzWPC63V?si=64d160876dfe45a7" target="_blank">
+      				<img src="Spotify_logo_without_text.svg.png" alt="odoriko" class="album-cover" width = "50" height = "50">
+    			</a>
+     			<p class="album-name">踊り子</p>
+ 			</div>
+  		</div>
+  		<p id="note">Note: Better experience with headphone on </p>
+	</div>
+    </div>
+	</div>
+</body>
+</html>
