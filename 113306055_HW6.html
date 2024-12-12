@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW6 1A2B Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .game-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result-container {
+            margin-top: 20px;
+        }
+        .result {
+            margin: 5px 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        td {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>113306055_HW6_1A2B</h1>
+    <div class="game-container">
+        <input type="text" id="guessInput" placeholder="輸入四個不重複數字" maxlength="4">
+        <button onclick="checkGuess()">猜！</button>
+        <div class="result-container" id="results"></div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>玩法</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>A</td>
+                <td>數字對位子對</td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>數字對位子錯</td>
+            </tr>
+            <tr>
+                <td>例子</td>
+                <td>如果答案是1234而你猜1325，答案會顯示2A1B</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        let answer = generateAnswer();
+        let attempts = 0;
+
+        function generateAnswer() {
+            const digits = Array.from({ length: 10 }, (_, i) => i);
+            const result = [];
+            while (result.length < 4) {
+                const randomIndex = Math.floor(Math.random() * digits.length);
+                result.push(digits.splice(randomIndex, 1)[0]);
+            }
+            return result;
+        }
+
+        function checkGuess() {
+            const guessInput = document.getElementById("guessInput");
+            const guess = guessInput.value.trim();
+            if (!/^\d{4}$/.test(guess)) {
+                alert("請輸入四個不重複數字");
+                return;
+            }
+            if (new Set(guess).size !== 4) {
+                alert("數字不能重複，請輸入四個不重複數字");
+                return;
+            }
+            const guessArray = guess.split("").map(Number);
+            let A = 0, B = 0;
+            guessArray.forEach((num, index) => {
+                if (num === answer[index]) A++;
+                else if (answer.includes(num)) B++;
+            });
+            attempts++;
+            const resultsDiv = document.getElementById("results");
+            const result = document.createElement("div");
+            result.className = "result";
+            result.textContent = `${guess} - ${A}A${B}B`;
+            resultsDiv.appendChild(result);
+            guessInput.value = "";
+
+            if (A === 4) {
+                alert(`恭喜答對！你在 ${attempts} 次內猜到答案`);
+                resetGame();
+            }
+        }
+
+        if (attempts > 10) {
+                document.body.style.backgroundColor = "#ffcccc"; 
+            }
+
+        function resetGame() {
+            answer = generateAnswer();
+            attempts = 0;
+            document.getElementById("results").innerHTML = "";
+        }
+
+        document.getElementById("guessInput").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                checkGuess();
+            }
+         });
+    </script>
+</body>
+</html>
